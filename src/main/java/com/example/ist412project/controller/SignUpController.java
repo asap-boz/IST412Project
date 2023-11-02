@@ -29,7 +29,7 @@ public class SignUpController {
     // Mapping for processing the sign-up form
     @PostMapping("/signup")
     public String signUp(@ModelAttribute("user") UserInfo user) {
-        // You can add validation and registration logic here
+
         // For simplicity, we're assuming the user service handles user creation
         userService.createUser(user);
         return "redirect:/login"; // Redirect to the login page or another page after successful registration

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<UserInfo, Long> {
     UserInfo findByUserName(String userName);
     UserInfo findByUserNameAndPassword(String username, String password);
-    // You can add custom query methods here if needed
+    //Can add more queries
 
 }

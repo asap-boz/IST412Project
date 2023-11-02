@@ -27,10 +27,10 @@ public class LoginController {
 
     @PostMapping("/login")
     public String loginSubmit(@RequestParam String userName, @RequestParam String password, Model model) {
-        // Now you can use userService to validate the user
+
         if (userService.validateUser(userName, password)) {
             // Successful login
-            return "redirect:/success"; // Redirect to a dashboard or some other secure page
+            return "redirect:/success"; // Redirect
         } else {
             // Failed login, show an error message
             model.addAttribute("error", "Invalid username or password");
