@@ -45,4 +45,8 @@ public class UserInfo implements Serializable {
     public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
     public void setEmail(String email) {this.email = email;}
     public String getEmail() {return email;}
+
+    public long getUserID() {
+        return uid;
+    }
 }

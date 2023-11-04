@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class LoginController {
 
@@ -30,7 +32,15 @@ public class LoginController {
 
         if (userService.validateUser(userName, password)) {
             // Successful login
-            return "redirect:/success"; // Redirect
+            List<UserInfo> users = userService.getAllUsers();
+            for (UserInfo other : users) {
+                if (userName.equals(other.getUserName())) {
+                    if (password.equals(other.getPassword())) {
+                        return "redirect:/dashboard/user/" + other.getUserID();
+                    }
+                }
+            }
+            return "redirect:/login"; // Redirect
         } else {
             // Failed login, show an error message
             model.addAttribute("error", "Invalid username or password");
