@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class UserInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid")
     private long uid;
     @Column(name = "firstName")
     private String firstName;
